@@ -1,6 +1,7 @@
 # -IIEC-RISE-Docker-Project-
 JOOMLA  DEVELOPMENT ENVIRONMENT WITH  MSQL DATABASE
 
+
 PROJECT OBJECTIVE
 ------------------
 Confiruration of Joomla server and mySQL server on Docker containers and connecting between them.
@@ -16,6 +17,8 @@ In order to complete the steps in this guide, you will need the following:
 4. MySQL image installed
 5. PhpMyAdmin and Joomla images installed
 
+STEPS:
+-------
 
 STEP 1: Prior to running the docker services, you are required to disable the firewall
 and SELinux using the following command:
