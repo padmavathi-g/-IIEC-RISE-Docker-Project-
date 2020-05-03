@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+           joomla:
+                  image: joomla
+                  restart: always
+                  volumes:
+                          - joomla_storage:/var/www/html
+                  ports:
+                           - 8092:80
+                  depends_on:
+                           - hostdb
+                  environment:
+                          JOOMLA_DB_HOST: hostdb
+                          JOOMLA_DB_PASSWORD: paddu
+
+         
+           hostdb:
+                   image: mysql:5.7
+                   volumes:
+                          -mysql_storage:/var/lib/mysql
+                   restart: always
+                   environment:
+                           MYSQL_ROOT_PASSWORD: root
+                           MYSQL_USER: paddu
+                           MYSQL_PASSWORD: paddu
+                           MYSQL_DATABASE: mydb1
+
+           phpmyadmin:
+                  image: phpmyadmin/phpmyadmin
+                  depends_on:
+                           - hostdb
+                  environment:
+                             - PMA_ARBITRARY=1
+                  restart: always
+                  volumes:
+                           - /sessions
+
+  volumes: 
+         mysql_storage:
+         joomla_storage:
